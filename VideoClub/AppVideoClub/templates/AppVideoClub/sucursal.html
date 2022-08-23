@@ -3,12 +3,37 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-
-
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-    <h1>Sucursales</h1>
-    <p>Lista de Sucursales</p>
-
+    
+<h1>Sucursales</h1>
   
+<h3>Podes buscar una sucursal por calle:</h3>
+
+    <form action="/AppVideoClub/buscarSucursal" method="GET">
+
+    <input type="string" name="direccion">
+
+    <input type="submit" value="Buscar">
+    
+    </form>
+
+<p><p>
+<p><p>
+
+<h3>Ingresar sucursal nueva:<h3>
+
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+    <form action="" method="POST">{% csrf_token %}
+        
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit", value="Enviar">
+
+    </form>
 
 {% endblock %}

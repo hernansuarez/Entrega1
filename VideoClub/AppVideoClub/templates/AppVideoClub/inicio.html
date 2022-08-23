@@ -12,12 +12,47 @@
 
     <ul>
 	{% for cliente in cliente %}
-        <li> {{cliente.idCliente}} </li>
-		<li> {{cliente.nombre}} </li>
-		<li> {{cliente.apellido}} </li>
-        <li> {{cliente.telefono}} </li>
-        <li> {{cliente.email}} </li>
-        <li> {{cliente.apellido}} </li>
+        <li> IdCliente: {{cliente.idCliente}} </li>
+		<li> Nombre: {{cliente.nombre}} </li>
+		<li> Apellido: {{cliente.apellido}} </li>
+        <li> Telefono: {{cliente.telefono}} </li>
+        <li> Email: {{cliente.email}} </li>
+        <p><p>
+
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+    {% if pelicula %}
+
+    <h3>Busqueda peliculas:</h3>
+
+    <ul>
+	{% for pelicula in pelicula %}
+        <li> Nombre: {{pelicula.nombre}} </li>
+		<li> Genero: {{pelicula.genero}} </li>
+		<li> Fecha de Alquiler: {{pelicula.fechaAlquiler}} </li>
+        <li> IdCliente: {{pelicula.idCliente}} </li>
+        <li> IdSucursal: {{pelicula.idSucursal}} </li>
+        <p><p>
+
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+    {% if sucursal %}
+
+    <h3>Busqueda sucursales:</h3>
+
+    <ul>
+	{% for sucursal in sucursal %}
+        <li> IdSucursal: {{sucursal.idSucursal}} </li>
+        <li> Direccion: {{sucursal.direccion}} </li>
+        <p><p>
 
 	{% endfor %}
 

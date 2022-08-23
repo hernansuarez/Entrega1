@@ -1,11 +1,11 @@
 from django import forms
 
 class PeliculaFormulario(forms.Form):
-
-    #Especificar los campos
-    pelicula = forms.CharField()
-    genero = forms.CharField()
-
+    nombre = forms.CharField(max_length=30)
+    genero = forms.CharField(max_length=30)
+    fechaAlquiler= forms.DateField()
+    idCliente = forms.IntegerField()
+    idSucursal = forms.IntegerField()
 
 class ClienteFormulario(forms.Form):
     idCliente = forms.IntegerField()   
@@ -15,7 +15,5 @@ class ClienteFormulario(forms.Form):
     telefono= forms.CharField(max_length=10)
 
 class SucursalFormulario(forms.Form):
-
-    #Especificar los campos
-    idSucursal = forms.CharField()
-    genero = forms.CharField()
+    idSucursal = forms.IntegerField()
+    direccion = forms.CharField()

@@ -3,12 +3,37 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-
-
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-    <h1>Peliculas</h1>
-    <p>Lista de Peliculas</p>
-
+    
+<h1>Peliculas</h1>
   
+<h3>Podes buscar una pelicula:</h3>
+
+    <form action="/AppVideoClub/buscarPelicula" method="GET">
+
+    <input type="string" name="nombre">
+
+    <input type="submit" value="Buscar">
+    
+    </form>
+
+<p><p>
+<p><p>
+
+<h3>Ingresar pelicula nueva:<h3>
+
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+    <form action="" method="POST">{% csrf_token %}
+        
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit", value="Enviar">
+
+    </form>
 
 {% endblock %}
