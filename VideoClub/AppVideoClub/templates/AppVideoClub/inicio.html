@@ -8,12 +8,17 @@
   
     {% if cliente %}
 
-    <p>Estamos buscando el: {{cliente}}</p>
+    <h3>Busqueda clientes:</h3>
 
     <ul>
 	{% for cliente in cliente %}
+        <li> {{cliente.idCliente}} </li>
 		<li> {{cliente.nombre}} </li>
 		<li> {{cliente.apellido}} </li>
+        <li> {{cliente.telefono}} </li>
+        <li> {{cliente.email}} </li>
+        <li> {{cliente.apellido}} </li>
+
 	{% endfor %}
 
     </ul>

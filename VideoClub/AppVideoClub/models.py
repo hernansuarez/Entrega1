@@ -1,4 +1,3 @@
-from email import generator
 from wsgiref.handlers import format_date_time
 from django.db import models
 

@@ -54,7 +54,7 @@ def buscar(request):
 
             cliente = Cliente.objects.filter(nombre__icontains=nombre)
 
-            return render(request, "AppVideoClub/inicio.html", {"clientes":cliente})
+            return render(request, "AppVideoClub/inicio.html", {"cliente":cliente})
 
       else: 
 
