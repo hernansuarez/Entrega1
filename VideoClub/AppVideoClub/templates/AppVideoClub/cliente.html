@@ -3,15 +3,30 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    
+<h1>Clientes</h1>
+  
+<h3>Podes buscar un cliente:</h3>
+
+    <form action="/AppVideoClub/buscar" method="GET">
+
+    <input type="string" name="nombre">
+
+    <input type="submit" value="Buscar">
+    
+    </form>
+
+<h3><h3>
+<h3><h3>
+
+<h3>Ingresar cliente nuevo:<h3>
+
     {% if miFormulario.errors %}
 
     <p style="color: red;"> Están mal los datos, revisar</p>
 
     {% endif %}
     <form action="" method="POST">{% csrf_token %}
-
-        <!-- Acá está la magia de Django-->
         
         <table>
             {{ miFormulario.as_table }}

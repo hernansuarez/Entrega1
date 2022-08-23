@@ -23,4 +23,4 @@ class Cliente(models.Model):
 
 class Sucursal(models.Model):
     idSucursal = models.IntegerField()
-    direccion= models.CharField(max_length=30)
+    direccion = models.CharField(max_length=30)

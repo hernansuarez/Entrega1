@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
 from AppVideoClub.models import Sucursal, Cliente, Pelicula
-from AppVideoClub.forms import ClienteFormulario, PeliculaFormulario
+from AppVideoClub.forms import ClienteFormulario, PeliculaFormulario, SucursalFormulario
 
 # Create your views here.
 
@@ -16,40 +16,18 @@ def sucursal(request):
 
 def pelicula(request):
 
-      if request.method == 'POST':
-
-            miFormulario = PeliculaFormulario(request.POST) #aquí mellega toda la información del html
-
-            print(miFormulario)
-
-            if miFormulario.is_valid:   #Si pasó la validación de Django
-
-                  informacion = miFormulario.cleaned_data
-
-                  pelicula = Pelicula(nombre=informacion['nombre'], genero=informacion['genero']) 
-
-                  pelicula.save()
-
-                  return render(request, "AppVideoClub/inicio.html") #Vuelvo al inicio o a donde quieran
-
-      else: 
-
-            miFormulario= PeliculaFormulario() #Formulario vacio para construir el html
-
-      return render(request, "AppVideoClub/pelicula.html", {"miFormulario":miFormulario})
-
-
+      return render(request, "AppVideoClub/pelicula.html")
 
 
 def clientes(request):
 
       if request.method == 'POST':
 
-            miFormulario = ClienteFormulario(request.POST) #aquí mellega toda la información del html
+            miFormulario = ClienteFormulario(request.POST)
 
             print(miFormulario)
 
-            if miFormulario.is_valid:   #Si pasó la validación de Django
+            if miFormulario.is_valid:
 
                   informacion = miFormulario.cleaned_data
 
@@ -58,14 +36,13 @@ def clientes(request):
 
                   cliente.save()
 
-                  return render(request, "AppVideoClub/inicio.html") #Vuelvo al inicio o a donde quieran
+                  return render(request, "AppVideoClub/inicio.html")
 
       else: 
 
-            miFormulario= ClienteFormulario() #Formulario vacio para construir el html
+            miFormulario= ClienteFormulario()
 
       return render(request, "AppVideoClub/cliente.html", {"miFormulario":miFormulario})
-
 
 
 
